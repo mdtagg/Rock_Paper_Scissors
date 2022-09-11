@@ -7,7 +7,7 @@ function getComputerChoice() {
 getComputerChoice()
 
 function playRound(playerSelection,computerSelection) {
-
+    
     if(playerSelection === 'rock' && computerSelection === 'paper'
     || playerSelection === 'paper' && computerSelection === 'scissors' 
     || playerSelection === 'scissors' && computerSelection === 'rock')
