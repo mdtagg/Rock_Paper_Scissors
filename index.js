@@ -6,7 +6,7 @@ function getComputerChoice() {
 
 getComputerChoice()
 
-function playRound(playerSelection,computerSelection = getComputerChoice()) {
+function playRound(playerSelection) {
     playerSelection.toLowerCase()
     console.log(playerSelection)
     console.log(computerSelection)
@@ -29,5 +29,6 @@ function playRound(playerSelection,computerSelection = getComputerChoice()) {
     }
     
 }
-
-playRound('rock')
+let playerSelection = 'rock'
+let computerSelection = getComputerChoice()
+playRound(playerSelection,computerSelection)
