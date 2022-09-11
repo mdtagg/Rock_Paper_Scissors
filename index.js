@@ -15,17 +15,18 @@ function playRound(playerSelection) {
     || playerSelection === 'paper' && computerSelection === 'scissors' 
     || playerSelection === 'scissors' && computerSelection === 'rock')
     {
-        console.log( `You lose! ${computerSelection} beats ${playerSelection}`)
+        return `You lose! ${computerSelection} beats ${playerSelection}`
     }
     
     else if(playerSelection === 'paper' && computerSelection === 'rock'
     || playerSelection === 'scissors' && computerSelection === 'paper'
     || playerSelection === 'rock' && computerSelection === 'scissors') {
-        console.log(`You win! ${playerSelection} beats ${computerSelection}`)
+        return `You win! ${playerSelection} beats ${computerSelection}`
     }
     
     else{
-        console.log('Its a draw! Play again')
+        return 'Its a draw! Play again'
+        
     }
     
 }
