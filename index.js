@@ -1,10 +1,13 @@
+/* getComputerChoice returns a random value of rock paper or scissors*/
+
 function getComputerChoice() {
     const rockPaperScissors = ['rock', 'paper', 'scissors']
     let randNum = Math.floor(Math.random() * rockPaperScissors.length)
     return rockPaperScissors[randNum]
 }
 
-getComputerChoice()
+/* playRound takes the players choice and the computers choice and uses 
+logic to determine if the player won lost or drew against the computer*/
 
 function playRound(playerSelection,computerSelection) {
     
@@ -23,13 +26,10 @@ function playRound(playerSelection,computerSelection) {
     else{
         return 'Its a draw! Play again'
     }
-    
 }
 
-// let playerSelection = 'rock'
-// let computerSelection = getComputerChoice()
-// playRound(playerSelection,computerSelection)
-
+/* The game function is the parent function of all other function declared
+It runs the playRound function 5 times and logs the results in an array*/
 
 function game() {
     let gameResults = [];
@@ -44,6 +44,11 @@ function game() {
 }
 
 game()
+
+/* The checkGameResults is a helper function in the game function.
+It loops through the game results to check for wins loses or draws.
+It then uses logic on the amount of wins loses or draws to determine 
+if the player beat the computer, lost to the computer or drew*/ 
 
 function checkGameResults(results) {
     let wins = 0;
