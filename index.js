@@ -26,9 +26,9 @@ function playRound(playerSelection,computerSelection) {
     
 }
 
-let playerSelection = 'rock'
-let computerSelection = getComputerChoice()
-playRound(playerSelection,computerSelection)
+// let playerSelection = 'rock'
+// let computerSelection = getComputerChoice()
+// playRound(playerSelection,computerSelection)
 
 
 function game() {
