@@ -9,13 +9,16 @@ function getComputerChoice() {
 /* playRound takes the players choice and the computers choice and uses 
 logic to determine if the player won lost or drew against the computer*/
 
-function playRound(e,computerSelection) {
+function playRound(e) {
     const playerSelection = e.target.value
+    let computerSelection = getComputerChoice()
     console.log(playerSelection)
+    console.log(computerSelection)
     if(playerSelection === 'rock' && computerSelection === 'paper'
     || playerSelection === 'paper' && computerSelection === 'scissors' 
     || playerSelection === 'scissors' && computerSelection === 'rock')
     {
+        
         return `You lose! ${computerSelection} beats ${playerSelection}`
     }
     
@@ -80,6 +83,6 @@ function checkGameResults(results) {
 }
 
 const buttons = Array.from(document.querySelectorAll('button'))
-console.log(buttons)
+// console.log(buttons)
 buttons.forEach(button => button.addEventListener('click', playRound))
 
