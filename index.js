@@ -9,8 +9,9 @@ function getComputerChoice() {
 /* playRound takes the players choice and the computers choice and uses 
 logic to determine if the player won lost or drew against the computer*/
 
-function playRound(playerSelection,computerSelection) {
-    
+function playRound(e,computerSelection) {
+    const playerSelection = e.target.value
+    console.log(playerSelection)
     if(playerSelection === 'rock' && computerSelection === 'paper'
     || playerSelection === 'paper' && computerSelection === 'scissors' 
     || playerSelection === 'scissors' && computerSelection === 'rock')
@@ -31,19 +32,19 @@ function playRound(playerSelection,computerSelection) {
 /* The game function is the parent function of all other function declared
 It runs the playRound function 5 times and logs the results in an array*/
 
-function game() {
-    let gameResults = [];
+// function game() {
+//     let gameResults = [];
     
-    for(let i = 0; i < 5; i++) {
-        let computerSelection = getComputerChoice();
-        let playerSelection = prompt().toLowerCase()
-        gameResults.push(playRound(playerSelection,computerSelection))
-    }
-    console.log(gameResults)
-    checkGameResults(gameResults)
-}
+//     for(let i = 0; i < 1; i++) {
+//         let computerSelection = getComputerChoice();
+//         let playerSelection = prompt().toLowerCase()
+//         gameResults.push(playRound(playerSelection,computerSelection))
+//     }
+//     console.log(gameResults)
+//     checkGameResults(gameResults)
+// }
 
-game()
+// game()
 
 /* The checkGameResults is a helper function in the game function.
 It loops through the game results to check for wins loses or draws.
@@ -77,4 +78,8 @@ function checkGameResults(results) {
         console.log(`Its a draw! Please play again`)
     }
 }
+
+const buttons = Array.from(document.querySelectorAll('button'))
+console.log(buttons)
+buttons.forEach(button => button.addEventListener('click', playRound))
 
