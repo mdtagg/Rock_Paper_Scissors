@@ -13,36 +13,36 @@ function playRound(e) {
     console.log(playerSelection)
     console.log(computerSelection)
     
-    if(totalGames === 5) {
-        console.log(totalGames)
-        checkGameResults(`${wins}`, `${loses}`,`${draws}`)
-    } else {
-        if(playerSelection === 'rock' && computerSelection === 'paper'
-        || playerSelection === 'paper' && computerSelection === 'scissors' 
-        || playerSelection === 'scissors' && computerSelection === 'rock')
-        {
-            totalGames++
-            loses++
-            let lose = document.querySelector('.computer')
-            lose.textContent = `${loses}`
-        }
-        
-        else if(playerSelection === 'paper' && computerSelection === 'rock'
-        || playerSelection === 'scissors' && computerSelection === 'paper'
-        || playerSelection === 'rock' && computerSelection === 'scissors') 
-        {
-            totalGames++
-            wins++
-            let win = document.querySelector('.player')
-            win.textContent = `${wins}`
-        }
-        else{
-            totalGames++
-            draws++
-            let draw = document.querySelector('.draw')
-            draw.textContent = `${draws}`
-        }
+    if(playerSelection === 'rock' && computerSelection === 'paper'
+    || playerSelection === 'paper' && computerSelection === 'scissors' 
+    || playerSelection === 'scissors' && computerSelection === 'rock')
+    {
+        totalGames++
+        loses++
+        let lose = document.querySelector('.computer')
+        lose.textContent = `${loses}`
     }
+    
+    else if(playerSelection === 'paper' && computerSelection === 'rock'
+    || playerSelection === 'scissors' && computerSelection === 'paper'
+    || playerSelection === 'rock' && computerSelection === 'scissors') 
+    {
+        totalGames++
+        wins++
+        let win = document.querySelector('.player')
+        win.textContent = `${wins}`
+    }
+    else{
+        totalGames++
+        draws++
+        let draw = document.querySelector('.draw')
+        draw.textContent = `${draws}`
+    }
+
+    if(totalGames === 5) {
+        checkGameResults(`${wins}`, `${loses}`,`${draws}`)
+    }
+
     }
 
 function checkGameResults(wins,loses,draws) {
