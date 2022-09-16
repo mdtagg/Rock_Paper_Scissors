@@ -18,50 +18,41 @@ function playRound(e) {
     console.log(playerSelection)
     console.log(computerSelection)
     
-    if(playerSelection === 'rock' && computerSelection === 'paper'
-    || playerSelection === 'paper' && computerSelection === 'scissors' 
-    || playerSelection === 'scissors' && computerSelection === 'rock')
-    {
-        loses++
-        let lose = document.querySelector('.computer')
-        lose.textContent = `${loses}`
-        // return `You lose! ${computerSelection} beats ${playerSelection}`
-    }
+    if(totalGames === 5) {
+        console.log(totalGames)
+        checkGameResults(`${wins}`, `${loses}`,`${draws}`)
+    } else {
+        if(playerSelection === 'rock' && computerSelection === 'paper'
+        || playerSelection === 'paper' && computerSelection === 'scissors' 
+        || playerSelection === 'scissors' && computerSelection === 'rock')
+        {
+            totalGames++
+            loses++
+            let lose = document.querySelector('.computer')
+            lose.textContent = `${loses}`
+            // return `You lose! ${computerSelection} beats ${playerSelection}`
+        }
+        
+        else if(playerSelection === 'paper' && computerSelection === 'rock'
+        || playerSelection === 'scissors' && computerSelection === 'paper'
+        || playerSelection === 'rock' && computerSelection === 'scissors') 
+        {
+            totalGames++
+            wins++
+            let win = document.querySelector('.player')
+            win.textContent = `${wins}`
     
-    else if(playerSelection === 'paper' && computerSelection === 'rock'
-    || playerSelection === 'scissors' && computerSelection === 'paper'
-    || playerSelection === 'rock' && computerSelection === 'scissors') 
-    {
-        wins++
-        let win = document.querySelector('.player')
-        win.textContent = `${wins}`
-
-        // return `You win! ${playerSelection} beats ${computerSelection}`
+            // return `You win! ${playerSelection} beats ${computerSelection}`
+        }
+        else{
+            totalGames++
+            draws++
+            let draw = document.querySelector('.draw')
+            draw.textContent = `${draws}`
+            // return 'Its a draw! Play again'
+        }
     }
-    else{
-        draws++
-        let draw = document.querySelector('.draw')
-        draw.textContent = `${draws}`
-        // return 'Its a draw! Play again'
     }
-}
-
-/* The game function is the parent function of all other function declared
-It runs the playRound function 5 times and logs the results in an array*/
-
-// function game() {
-//     let gameResults = [];
-    
-  
-    
-// }
-
-// game()
-
-/* The checkGameResults is a helper function in the game function.
-It loops through the game results to check for wins loses or draws.
-It then uses logic on the amount of wins loses or draws to determine 
-if the player beat the computer, lost to the computer or drew*/ 
 
 function checkGameResults(wins,loses,draws) {
     
@@ -80,13 +71,19 @@ function checkGameResults(wins,loses,draws) {
     // }
     
     if(wins > loses) {
-        console.log(`You won! You won ${wins} out of ${wins + loses + draws} times`)
+        const winner = document.querySelector('.outcome')
+        winner.textContent = `You won! You won ${wins} out of ${totalGames} times`
+        // console.log(`You won! You won ${wins} out of ${wins + loses + draws} times`)
     }
     else if(loses > wins) {
-        console.log(`You lost! You lost ${loses} out of ${wins + loses + draws} times`)
+        const loser = document.querySelector('.outcome')
+        loser.textContent = `You lost! You lost ${loses} out of ${totalGames} times`
+        // console.log(`You lost! You lost ${loses} out of ${wins + loses + draws} times`)
     }
     else {
-        console.log(`Its a draw! Please play again`)
+        const drew = document.querySelector('.outcome')
+        drew.textContent = `Its a draw! Please play again`
+        // console.log(`Its a draw! Please play again`)
     }
 }
 
@@ -96,5 +93,6 @@ buttons.forEach(button => button.addEventListener('click', playRound))
 let wins = 0
 let loses = 0
 let draws = 0
-let totalGames = wins + loses + draws
+let totalGames = 0
+
 
