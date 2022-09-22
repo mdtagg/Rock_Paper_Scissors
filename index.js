@@ -70,4 +70,13 @@ let loses = 0
 let draws = 0
 let totalGames = 0
 
+const restart = document.querySelector('.restart-button')
+
+restart.addEventListener('click', () => {
+    wins = 0
+    loses = 0
+    draws = 0
+    totalGames = 0
+})
+
 
