@@ -40,7 +40,6 @@ function playRound(e) {
     if(totalGames === 5) {
         checkGameResults(`${wins}`, `${loses}`,`${draws}`)
     }
-    
 
     }
 
@@ -48,11 +47,14 @@ function checkGameResults(wins,loses,draws) {
     
     if(wins > loses) {
         const winner = document.querySelector('.outcome')
-        winner.textContent = `You won! You won ${wins} out of ${totalGames} times`
+        winner.textContent = `You won! You won ${wins} times, 
+        you lost ${loses} times and you drew ${draws} times out 
+        of ${totalGames} games`
     }
     else if(loses > wins) {
         const loser = document.querySelector('.outcome')
-        loser.textContent = `You lost! You lost ${loses} out of ${totalGames} times`
+        loser.textContent = `You lost! You lost ${loses} times, you won
+        ${wins} times and you drew ${draws} times out of ${totalGames} games`
     }
     else {
         const drew = document.querySelector('.outcome')
