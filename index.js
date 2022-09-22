@@ -5,8 +5,6 @@ function getComputerChoice() {
     return rockPaperScissors[randNum]
 }
 
-let gameResultsArray = []
-
 function playRound(e) {
     const playerSelection = e.target.value
     let computerSelection = getComputerChoice()
@@ -42,6 +40,7 @@ function playRound(e) {
     if(totalGames === 5) {
         checkGameResults(`${wins}`, `${loses}`,`${draws}`)
     }
+    
 
     }
 
